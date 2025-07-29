@@ -1,4 +1,4 @@
-import { Shield, Key, Mail, Globe, CheckSquare, Newspaper, Menu } from "lucide-react"
+import { Shield, Key, Mail, Globe, CheckSquare, Newspaper } from "lucide-react"
 import { NavLink } from "react-router-dom"
 import {
   Sidebar,
@@ -9,9 +9,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { LogoUpload } from "./LogoUpload"
 
 const menuItems = [
   { 
@@ -59,19 +59,7 @@ export function CyberSidebar() {
   return (
     <Sidebar className={collapsed ? "w-16" : "w-72"} collapsible="icon">
       <SidebarContent className="bg-gradient-dark border-r border-sidebar-border">
-        <div className="p-4 border-b border-sidebar-border">
-          <div className="flex items-center gap-2">
-            <Shield className="h-8 w-8 text-primary" />
-            {!collapsed && (
-              <div>
-                <h1 className="text-xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
-                  CyberShield
-                </h1>
-                <p className="text-xs text-muted-foreground">Security Dashboard</p>
-              </div>
-            )}
-          </div>
-        </div>
+        <LogoUpload collapsed={collapsed} />
 
         <SidebarGroup>
           <SidebarGroupLabel className="text-primary font-semibold">
