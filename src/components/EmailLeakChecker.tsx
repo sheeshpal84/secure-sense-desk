@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
+import { BackButton } from "./BackButton"
 
 interface BreachData {
   Name: string
@@ -76,6 +77,8 @@ export default function EmailLeakChecker() {
 
   return (
     <div className="space-y-6">
+      <BackButton />
+      
       <div className="flex items-center gap-2 mb-6">
         <Mail className="h-6 w-6 text-primary" />
         <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">

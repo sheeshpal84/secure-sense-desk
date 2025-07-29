@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
+import { BackButton } from "./BackButton"
 import zxcvbn from "zxcvbn"
 
 const strengthLabels = ["Very Weak", "Weak", "Fair", "Good", "Strong"]
@@ -29,6 +30,8 @@ export default function PasswordChecker() {
 
   return (
     <div className="space-y-6">
+      <BackButton />
+      
       <div className="flex items-center gap-2 mb-6">
         <Key className="h-6 w-6 text-primary" />
         <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">

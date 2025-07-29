@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import { BackButton } from "./BackButton"
 
 interface NewsArticle {
   title: string
@@ -128,6 +129,8 @@ export default function CyberNews() {
 
   return (
     <div className="space-y-6">
+      <BackButton />
+      
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <Newspaper className="h-6 w-6 text-primary" />
