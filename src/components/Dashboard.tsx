@@ -81,8 +81,8 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-2 mb-6">
+    <div className="space-y-8 p-4 sm:p-6 max-w-7xl mx-auto">
+      <div className="flex items-center gap-3 mb-8">
         <Shield className="h-6 w-6 text-primary" />
         <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
           CyberShield Dashboard
@@ -90,53 +90,56 @@ export default function Dashboard() {
       </div>
 
       {/* Welcome Section */}
-      <Card className="bg-gradient-card border-border/50">
+      <Card className="bg-gradient-card border-border/50 mx-4 sm:mx-0">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-semibold mb-2">Welcome to CyberShield</h2>
+              <h2 className="text-xl font-semibold mb-2 text-foreground">Welcome back, stay secure!</h2>
               <p className="text-muted-foreground">
                 Your comprehensive cybersecurity analysis platform. Stay protected with real-time security tools.
               </p>
             </div>
-            <Shield className="h-16 w-16 text-primary/30" />
+            <Shield className="h-16 w-16 text-primary/30 hidden sm:block" />
           </div>
         </CardContent>
       </Card>
 
       {/* Security Tools Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {securityMetrics.map((metric) => (
-          <Link key={metric.title} to={metric.link}>
-            <Card className="bg-gradient-card border-border/50 hover:border-primary/50 transition-all hover:shadow-glow-primary group cursor-pointer">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <metric.icon className={`h-5 w-5 ${getStatusColor(metric.status)} group-hover:text-primary transition-colors`} />
-                  <TrendingUp className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                </div>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <div className="space-y-2">
-                  <h3 className="font-semibold group-hover:text-primary transition-colors">
-                    {metric.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {metric.description}
-                  </p>
-                  <p className={`text-sm font-medium ${getStatusColor(metric.status)}`}>
-                    {metric.value}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
+      <div className="px-4 sm:px-0">
+        <h2 className="text-xl font-semibold mb-4 text-foreground">Security Tools</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {securityMetrics.map((metric) => (
+            <Link key={metric.title} to={metric.link} className="block">
+              <Card className="bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow-primary group cursor-pointer h-full p-4">
+                <CardHeader className="pb-3 p-0">
+                  <div className="flex items-center justify-between mb-4">
+                    <metric.icon className={`h-6 w-6 ${getStatusColor(metric.status)} group-hover:text-primary transition-colors`} />
+                    <TrendingUp className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </div>
+                </CardHeader>
+                <CardContent className="p-0">
+                  <div className="space-y-3">
+                    <h3 className="font-semibold text-base group-hover:text-primary transition-colors">
+                      {metric.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {metric.description}
+                    </p>
+                    <p className={`text-sm font-medium ${getStatusColor(metric.status)} mt-4`}>
+                      {metric.value}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Recent Threats & News */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-4 sm:px-0">
         <Card className="bg-gradient-card border-border/50">
-          <CardHeader>
+          <CardHeader className="p-6">
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle className="flex items-center gap-2">
@@ -150,18 +153,18 @@ export default function Dashboard() {
               </Button>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-6 pb-6">
             <div className="space-y-4">
               {recentThreats.map((threat, index) => (
-                <div key={index} className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
-                  <div className="flex-1 space-y-1">
+                <div key={index} className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg border border-border/30">
+                  <div className="flex-1 space-y-2">
                     <div className="flex items-center justify-between">
                       <h4 className="font-medium text-sm">{threat.type}</h4>
                       <Badge variant={getSeverityVariant(threat.severity) as any} className="text-xs">
                         {threat.severity}
                       </Badge>
                     </div>
-                    <p className="text-xs text-muted-foreground">{threat.description}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{threat.description}</p>
                     <p className="text-xs text-muted-foreground">{threat.time}</p>
                   </div>
                 </div>
@@ -171,7 +174,7 @@ export default function Dashboard() {
         </Card>
 
         <Card className="bg-gradient-card border-border/50">
-          <CardHeader>
+          <CardHeader className="p-6">
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle className="flex items-center gap-2">
@@ -182,29 +185,29 @@ export default function Dashboard() {
               </div>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-6 pb-6">
             <div className="space-y-3">
-              <Button variant="outline" className="w-full justify-start" asChild>
+              <Button variant="outline" className="w-full justify-start p-4 h-auto" asChild>
                 <Link to="/password">
-                  <Key className="mr-2 h-4 w-4" />
+                  <Key className="mr-3 h-4 w-4" />
                   Test Password Strength
                 </Link>
               </Button>
-              <Button variant="outline" className="w-full justify-start" asChild>
+              <Button variant="outline" className="w-full justify-start p-4 h-auto" asChild>
                 <Link to="/email">
-                  <Mail className="mr-2 h-4 w-4" />
+                  <Mail className="mr-3 h-4 w-4" />
                   Check Email Breaches
                 </Link>
               </Button>
-              <Button variant="outline" className="w-full justify-start" asChild>
+              <Button variant="outline" className="w-full justify-start p-4 h-auto" asChild>
                 <Link to="/phishing">
-                  <Globe className="mr-2 h-4 w-4" />
+                  <Globe className="mr-3 h-4 w-4" />
                   Analyze Suspicious URL
                 </Link>
               </Button>
-              <Button variant="outline" className="w-full justify-start" asChild>
+              <Button variant="outline" className="w-full justify-start p-4 h-auto" asChild>
                 <Link to="/checklist">
-                  <CheckSquare className="mr-2 h-4 w-4" />
+                  <CheckSquare className="mr-3 h-4 w-4" />
                   Security Best Practices
                 </Link>
               </Button>
@@ -214,36 +217,36 @@ export default function Dashboard() {
       </div>
 
       {/* Security Score Overview */}
-      <Card className="bg-gradient-card border-border/50">
-        <CardHeader>
+      <Card className="bg-gradient-card border-border/50 mx-4 sm:mx-0">
+        <CardHeader className="p-6">
           <CardTitle>Security Posture Overview</CardTitle>
           <CardDescription>
             Your overall security status based on completed security practices
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="text-center p-4 bg-muted/50 rounded-lg">
+        <CardContent className="px-6 pb-6">
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="text-center p-6 bg-muted/50 rounded-lg border border-border/30">
                 <h3 className="text-2xl font-bold text-primary">0%</h3>
-                <p className="text-sm text-muted-foreground">Security Checklist</p>
+                <p className="text-sm text-muted-foreground mt-2">Security Checklist</p>
               </div>
-              <div className="text-center p-4 bg-muted/50 rounded-lg">
+              <div className="text-center p-6 bg-muted/50 rounded-lg border border-border/30">
                 <h3 className="text-2xl font-bold text-warning">-</h3>
-                <p className="text-sm text-muted-foreground">Password Tested</p>
+                <p className="text-sm text-muted-foreground mt-2">Password Tested</p>
               </div>
-              <div className="text-center p-4 bg-muted/50 rounded-lg">
+              <div className="text-center p-6 bg-muted/50 rounded-lg border border-border/30">
                 <h3 className="text-2xl font-bold text-warning">-</h3>
-                <p className="text-sm text-muted-foreground">Email Checked</p>
+                <p className="text-sm text-muted-foreground mt-2">Email Checked</p>
               </div>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-3">
               <div className="flex justify-between text-sm">
                 <span>Overall Security Score</span>
                 <span>0%</span>
               </div>
               <Progress value={0} className="h-2" />
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 Complete security tools and checklist items to improve your score
               </p>
             </div>
