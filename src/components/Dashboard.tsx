@@ -81,7 +81,32 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="space-y-8 p-4 sm:p-6 max-w-7xl mx-auto">
+    <div className="relative space-y-8 p-4 sm:p-6 max-w-7xl mx-auto">
+      {/* Cyber Background Animation */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Animated Grid */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(202,0,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(202,0,0,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
+        </div>
+        
+        {/* Floating Security Icons */}
+        <div className="absolute inset-0">
+          <div className="absolute top-[10%] left-[5%] w-3 h-3 bg-primary/10 rounded-full animate-ping" style={{animationDelay: '0s', animationDuration: '4s'}}></div>
+          <div className="absolute top-[30%] right-[10%] w-2 h-2 bg-primary/20 rounded-full animate-pulse" style={{animationDelay: '1s', animationDuration: '3s'}}></div>
+          <div className="absolute bottom-[20%] left-[15%] w-4 h-4 bg-primary/15 rounded-full animate-ping" style={{animationDelay: '2s', animationDuration: '5s'}}></div>
+          <div className="absolute top-[60%] right-[20%] w-3 h-3 bg-primary/10 rounded-full animate-pulse" style={{animationDelay: '0.5s', animationDuration: '6s'}}></div>
+          <div className="absolute bottom-[40%] right-[5%] w-2 h-2 bg-primary/25 rounded-full animate-ping" style={{animationDelay: '3s', animationDuration: '4s'}}></div>
+        </div>
+        
+        {/* Scanning Lines */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-pulse" style={{animationDelay: '1s', animationDuration: '8s'}}></div>
+          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent animate-pulse" style={{animationDelay: '4s', animationDuration: '6s'}}></div>
+        </div>
+      </div>
+
+      {/* Main Content - Higher z-index */}
+      <div className="relative z-10">
       <div className="flex items-center gap-3 mb-8">
         <Shield className="h-6 w-6 text-primary" />
         <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
@@ -253,6 +278,7 @@ export default function Dashboard() {
           </div>
         </CardContent>
       </Card>
+      </div>
     </div>
   )
 }
