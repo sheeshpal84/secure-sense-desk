@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Link } from "react-router-dom"
 import { GlobalBreachMap } from './GlobalBreachMap'
+import SecurityAssistant from './SecurityAssistant'
 
 const securityMetrics = [
   {
@@ -284,6 +285,9 @@ export default function Dashboard() {
         </CardContent>
       </Card>
       </div>
+      
+      {/* Security Assistant */}
+      <SecurityAssistant />
     </div>
   )
 }
