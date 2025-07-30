@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Link } from "react-router-dom"
+import { GlobalBreachMap } from './GlobalBreachMap'
 
 const securityMetrics = [
   {
@@ -241,6 +242,10 @@ export default function Dashboard() {
         </Card>
       </div>
 
+      {/* Global Data Breach Map */}
+      <div className="px-4 sm:px-0">
+        <GlobalBreachMap />
+      </div>
       {/* Security Score Overview */}
       <Card className="bg-gradient-card border-border/50 mx-4 sm:mx-0">
         <CardHeader className="p-6">
