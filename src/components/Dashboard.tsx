@@ -83,7 +83,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="relative space-y-6 sm:space-y-8 max-w-7xl mx-auto">
+    <div className="relative w-full">
       {/* Cyber Background Animation */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Animated Grid */}
@@ -108,11 +108,11 @@ export default function Dashboard() {
       </div>
 
       {/* Main Content - Higher z-index */}
-      <div className="relative z-10 space-y-6 sm:space-y-8">
+      <div className="relative z-10 max-w-7xl mx-auto w-full space-y-8">
         {/* Header */}
-        <div className="flex items-center gap-3">
-          <Shield className="h-6 w-6 text-primary" />
-          <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
+        <div className="flex items-center gap-3 pt-2">
+          <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
+          <h1 className="text-xl sm:text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent truncate">
             CyberShield Dashboard
           </h1>
         </div>
@@ -134,26 +134,26 @@ export default function Dashboard() {
 
         {/* Security Tools Grid */}
         <div className="space-y-6">
-          <h2 className="text-xl font-semibold text-foreground">Security Tools</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="text-lg sm:text-xl font-semibold text-foreground">Security Tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {securityMetrics.map((metric) => (
               <Link key={metric.title} to={metric.link} className="block">
                 <Card className="bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow-primary group cursor-pointer h-full">
-                  <CardHeader className="pb-3">
+                  <CardHeader className="p-4 sm:p-6 pb-3">
                     <div className="flex items-center justify-between">
-                      <metric.icon className={`h-6 w-6 ${getStatusColor(metric.status)} group-hover:text-primary transition-colors`} />
-                      <TrendingUp className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                      <metric.icon className={`h-5 w-5 sm:h-6 sm:w-6 ${getStatusColor(metric.status)} group-hover:text-primary transition-colors flex-shrink-0`} />
+                      <TrendingUp className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
                     </div>
                   </CardHeader>
-                  <CardContent className="pt-0">
+                  <CardContent className="p-4 sm:p-6 pt-0">
                     <div className="space-y-2">
-                      <h3 className="font-semibold text-base group-hover:text-primary transition-colors">
+                      <h3 className="font-semibold text-sm sm:text-base group-hover:text-primary transition-colors">
                         {metric.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                         {metric.description}
                       </p>
-                      <p className={`text-sm font-medium ${getStatusColor(metric.status)}`}>
+                      <p className={`text-xs sm:text-sm font-medium ${getStatusColor(metric.status)}`}>
                         {metric.value}
                       </p>
                     </div>
