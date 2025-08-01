@@ -133,9 +133,9 @@ export default function Dashboard() {
         </Card>
 
         {/* Security Tools Grid */}
-        <div className="space-y-4">
+        <div className="space-y-6">
           <h2 className="text-xl font-semibold text-foreground">Security Tools</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {securityMetrics.map((metric) => (
               <Link key={metric.title} to={metric.link} className="block">
                 <Card className="bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow-primary group cursor-pointer h-full">
