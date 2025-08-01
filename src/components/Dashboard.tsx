@@ -83,7 +83,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="relative space-y-8 p-4 sm:p-6 max-w-7xl mx-auto">
+    <div className="relative space-y-6 sm:space-y-8 max-w-7xl mx-auto">
       {/* Cyber Background Animation */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Animated Grid */}
@@ -108,63 +108,64 @@ export default function Dashboard() {
       </div>
 
       {/* Main Content - Higher z-index */}
-      <div className="relative z-10">
-      <div className="flex items-center gap-3 mb-8">
-        <Shield className="h-6 w-6 text-primary" />
-        <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
-          CyberShield Dashboard
-        </h1>
-      </div>
-
-      {/* Welcome Section */}
-      <Card className="bg-gradient-card border-border/50 mx-4 sm:mx-0">
-        <CardContent className="p-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-xl font-semibold mb-2 text-foreground">Welcome back, stay secure!</h2>
-              <p className="text-muted-foreground">
-                Your comprehensive cybersecurity analysis platform. Stay protected with real-time security tools.
-              </p>
-            </div>
-            <Shield className="h-16 w-16 text-primary/30 hidden sm:block" />
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Security Tools Grid */}
-      <div className="px-4 sm:px-0">
-        <h2 className="text-xl font-semibold mb-4 text-foreground">Security Tools</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {securityMetrics.map((metric) => (
-            <Link key={metric.title} to={metric.link} className="block">
-              <Card className="bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow-primary group cursor-pointer h-full p-4">
-                <CardHeader className="pb-3 p-0">
-                  <div className="flex items-center justify-between mb-4">
-                    <metric.icon className={`h-6 w-6 ${getStatusColor(metric.status)} group-hover:text-primary transition-colors`} />
-                    <TrendingUp className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </div>
-                </CardHeader>
-                <CardContent className="p-0">
-                  <div className="space-y-3">
-                    <h3 className="font-semibold text-base group-hover:text-primary transition-colors">
-                      {metric.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {metric.description}
-                    </p>
-                    <p className={`text-sm font-medium ${getStatusColor(metric.status)} mt-4`}>
-                      {metric.value}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
+      <div className="relative z-10 space-y-6 sm:space-y-8">
+        {/* Header */}
+        <div className="flex items-center gap-3">
+          <Shield className="h-6 w-6 text-primary" />
+          <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
+            CyberShield Dashboard
+          </h1>
         </div>
-      </div>
 
-      {/* Recent Threats & News */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-4 sm:px-0">
+        {/* Welcome Section */}
+        <Card className="bg-gradient-card border-border/50">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-semibold mb-2 text-foreground">Welcome back, stay secure!</h2>
+                <p className="text-muted-foreground">
+                  Your comprehensive cybersecurity analysis platform. Stay protected with real-time security tools.
+                </p>
+              </div>
+              <Shield className="h-16 w-16 text-primary/30 hidden sm:block" />
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Security Tools Grid */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold text-foreground">Security Tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {securityMetrics.map((metric) => (
+              <Link key={metric.title} to={metric.link} className="block">
+                <Card className="bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow-primary group cursor-pointer h-full">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between">
+                      <metric.icon className={`h-6 w-6 ${getStatusColor(metric.status)} group-hover:text-primary transition-colors`} />
+                      <TrendingUp className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <div className="space-y-2">
+                      <h3 className="font-semibold text-base group-hover:text-primary transition-colors">
+                        {metric.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {metric.description}
+                      </p>
+                      <p className={`text-sm font-medium ${getStatusColor(metric.status)}`}>
+                        {metric.value}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Recent Threats & News */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="bg-gradient-card border-border/50">
           <CardHeader className="p-6">
             <div className="flex items-center justify-between">
@@ -243,47 +244,46 @@ export default function Dashboard() {
         </Card>
       </div>
 
-      {/* Global Data Breach Map */}
-      <div className="px-4 sm:px-0">
+        {/* Global Data Breach Map */}
         <GlobalBreachMap />
-      </div>
-      {/* Security Score Overview */}
-      <Card className="bg-gradient-card border-border/50 mx-4 sm:mx-0">
-        <CardHeader className="p-6">
-          <CardTitle>Security Posture Overview</CardTitle>
-          <CardDescription>
-            Your overall security status based on completed security practices
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="px-6 pb-6">
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="text-center p-6 bg-muted/50 rounded-lg border border-border/30">
-                <h3 className="text-2xl font-bold text-primary">0%</h3>
-                <p className="text-sm text-muted-foreground mt-2">Security Checklist</p>
+
+        {/* Security Score Overview */}
+        <Card className="bg-gradient-card border-border/50">
+          <CardHeader>
+            <CardTitle>Security Posture Overview</CardTitle>
+            <CardDescription>
+              Your overall security status based on completed security practices
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="text-center p-4 bg-muted/50 rounded-lg border border-border/30">
+                  <h3 className="text-2xl font-bold text-primary">0%</h3>
+                  <p className="text-sm text-muted-foreground mt-2">Security Checklist</p>
+                </div>
+                <div className="text-center p-4 bg-muted/50 rounded-lg border border-border/30">
+                  <h3 className="text-2xl font-bold text-warning">-</h3>
+                  <p className="text-sm text-muted-foreground mt-2">Password Tested</p>
+                </div>
+                <div className="text-center p-4 bg-muted/50 rounded-lg border border-border/30">
+                  <h3 className="text-2xl font-bold text-warning">-</h3>
+                  <p className="text-sm text-muted-foreground mt-2">Email Checked</p>
+                </div>
               </div>
-              <div className="text-center p-6 bg-muted/50 rounded-lg border border-border/30">
-                <h3 className="text-2xl font-bold text-warning">-</h3>
-                <p className="text-sm text-muted-foreground mt-2">Password Tested</p>
-              </div>
-              <div className="text-center p-6 bg-muted/50 rounded-lg border border-border/30">
-                <h3 className="text-2xl font-bold text-warning">-</h3>
-                <p className="text-sm text-muted-foreground mt-2">Email Checked</p>
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm">
+                  <span>Overall Security Score</span>
+                  <span>0%</span>
+                </div>
+                <Progress value={0} className="h-2" />
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Complete security tools and checklist items to improve your score
+                </p>
               </div>
             </div>
-            <div className="space-y-3">
-              <div className="flex justify-between text-sm">
-                <span>Overall Security Score</span>
-                <span>0%</span>
-              </div>
-              <Progress value={0} className="h-2" />
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Complete security tools and checklist items to improve your score
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
       </div>
       
       {/* Security Assistant */}
