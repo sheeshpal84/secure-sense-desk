@@ -6,6 +6,9 @@ import { Progress } from "@/components/ui/progress"
 import { Link } from "react-router-dom"
 import { GlobalBreachMap } from './GlobalBreachMap'
 import SecurityAssistant from './SecurityAssistant'
+import SecurityTipsBanner from './SecurityTipsBanner'
+import SecurityScore from './SecurityScore'
+import MiniAnalytics from './MiniAnalytics'
 
 const securityMetrics = [
   {
@@ -109,6 +112,9 @@ export default function Dashboard() {
 
       {/* Main Content - Higher z-index */}
       <div className="relative z-10 max-w-7xl mx-auto w-full space-y-8">
+        {/* Security Tips Banner */}
+        <SecurityTipsBanner />
+
         {/* Header */}
         <div className="flex items-center gap-3 pt-2">
           <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
@@ -162,6 +168,12 @@ export default function Dashboard() {
               </Link>
             ))}
           </div>
+        </div>
+
+        {/* Security Score and Analytics */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <SecurityScore />
+          <MiniAnalytics />
         </div>
 
         {/* Recent Threats & News */}

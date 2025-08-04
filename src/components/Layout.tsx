@@ -1,15 +1,15 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { CyberSidebar } from "./CyberSidebar"
 import { useAuth } from "@/contexts/AuthContext"
-import { Button } from "@/components/ui/button"
-import { LogOut } from "lucide-react"
+import NotificationBell from "./NotificationBell"
+import UserProfileDropdown from "./UserProfileDropdown"
 
 interface LayoutProps {
   children: React.ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const { user, logout } = useAuth()
+  const { user } = useAuth()
 
   return (
     <SidebarProvider>
@@ -24,18 +24,9 @@ export default function Layout({ children }: LayoutProps) {
                 <span className="text-sm text-muted-foreground hidden sm:inline">System Secure</span>
               </div>
               {user && (
-                <div className="flex items-center gap-3 md:gap-4">
-                  <span className="text-sm text-muted-foreground hidden md:inline">
-                    Welcome, {user.name}
-                  </span>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={logout}
-                    className="text-muted-foreground hover:text-foreground"
-                  >
-                    <LogOut className="h-4 w-4" />
-                  </Button>
+                <div className="flex items-center gap-2">
+                  <NotificationBell />
+                  <UserProfileDropdown />
                 </div>
               )}
             </div>
