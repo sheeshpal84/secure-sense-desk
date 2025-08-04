@@ -18,13 +18,13 @@ export default function Layout({ children }: LayoutProps) {
         <div className="flex-1 flex flex-col min-w-0">
           <header className="h-16 flex items-center justify-between px-4 md:px-6 border-b border-border/50 bg-card/50 backdrop-blur-sm shrink-0">
             <SidebarTrigger className="hover:bg-primary/10 hover:text-primary" />
-            <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex items-center gap-3 md:gap-4">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 bg-success rounded-full animate-pulse"></div>
                 <span className="text-sm text-muted-foreground hidden sm:inline">System Secure</span>
               </div>
               {user && (
-                <div className="flex items-center gap-2 md:gap-3">
+                <div className="flex items-center gap-3 md:gap-4">
                   <span className="text-sm text-muted-foreground hidden md:inline">
                     Welcome, {user.name}
                   </span>
@@ -40,7 +40,7 @@ export default function Layout({ children }: LayoutProps) {
               )}
             </div>
           </header>
-          <main className="flex-1 p-4 md:p-6 overflow-auto">
+          <main className="flex-1 p-6 md:p-8 overflow-auto">
             <div className="max-w-7xl mx-auto w-full">
               {children}
             </div>

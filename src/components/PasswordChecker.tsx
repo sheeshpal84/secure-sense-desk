@@ -29,11 +29,11 @@ export default function PasswordChecker() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <BackButton />
       
-      <div className="flex items-center gap-2 mb-6">
-        <Key className="h-6 w-6 text-primary" />
+      <div className="flex items-center gap-3">
+        <Key className="h-6 w-6 text-primary flex-shrink-0" />
         <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
           Password Strength Checker
         </h1>
@@ -46,8 +46,8 @@ export default function PasswordChecker() {
             Enter a password to analyze its strength and get security recommendations
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
+        <CardContent className="space-y-6">
+          <div className="space-y-3">
             <Label htmlFor="password">Password</Label>
             <div className="relative">
               <Input
@@ -83,8 +83,8 @@ export default function PasswordChecker() {
           </Button>
 
           {result && (
-            <div className="space-y-4 mt-6">
-              <div className="space-y-2">
+            <div className="space-y-6 pt-2">
+              <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium">Strength Score</span>
                   <Badge variant={getStrengthColor(result.score) as any}>
@@ -94,15 +94,15 @@ export default function PasswordChecker() {
                 <Progress value={(result.score + 1) * 20} className="h-2" />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-semibold text-sm mb-2">Time to Crack</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm">Time to Crack</h4>
                   <p className="text-sm text-muted-foreground">
                     {result.crack_times_display.offline_slow_hashing_1e4_per_second}
                   </p>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-sm mb-2">Guesses</h4>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm">Guesses</h4>
                   <p className="text-sm text-muted-foreground">
                     {result.guesses.toLocaleString()}
                   </p>
@@ -110,13 +110,13 @@ export default function PasswordChecker() {
               </div>
 
               {result.feedback.suggestions.length > 0 && (
-                <div>
-                  <h4 className="font-semibold text-sm mb-2">Suggestions</h4>
-                  <ul className="space-y-1">
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-sm">Suggestions</h4>
+                  <ul className="space-y-2">
                     {result.feedback.suggestions.map((suggestion: string, index: number) => (
                       <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                        <span className="text-warning">•</span>
-                        {suggestion}
+                        <span className="text-warning mt-0.5">•</span>
+                        <span>{suggestion}</span>
                       </li>
                     ))}
                   </ul>
@@ -124,7 +124,7 @@ export default function PasswordChecker() {
               )}
 
               {result.feedback.warning && (
-                <div className="p-3 bg-warning/10 border border-warning/20 rounded-lg">
+                <div className="p-4 bg-warning/10 border border-warning/20 rounded-lg">
                   <p className="text-sm text-warning font-medium">
                     {result.feedback.warning}
                   </p>

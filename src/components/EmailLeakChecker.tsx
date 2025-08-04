@@ -76,11 +76,11 @@ export default function EmailLeakChecker() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <BackButton />
       
-      <div className="flex items-center gap-2 mb-6">
-        <Mail className="h-6 w-6 text-primary" />
+      <div className="flex items-center gap-3">
+        <Mail className="h-6 w-6 text-primary flex-shrink-0" />
         <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
           Email Leak Checker
         </h1>
@@ -93,8 +93,8 @@ export default function EmailLeakChecker() {
             Enter your email to check if it has been exposed in any known data breaches
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
+        <CardContent className="space-y-6">
+          <div className="space-y-3">
             <Label htmlFor="email">Email Address</Label>
             <Input
               id="email"
@@ -146,24 +146,24 @@ export default function EmailLeakChecker() {
               )}
 
               {breaches.length > 0 && (
-                <div className="space-y-4 mt-4">
+                <div className="space-y-6 pt-2">
                   <h4 className="font-semibold">Affected Breaches:</h4>
                   {breaches.map((breach) => (
                     <Card key={breach.Name} className="bg-muted/50">
-                      <CardContent className="p-4">
-                        <div className="flex justify-between items-start mb-2">
+                      <CardContent className="p-6">
+                        <div className="flex justify-between items-start mb-3">
                           <h5 className="font-semibold">{breach.Title}</h5>
                           <Badge variant="destructive" className="text-xs">
                             {breach.PwnCount.toLocaleString()} accounts
                           </Badge>
                         </div>
-                        <p className="text-sm text-muted-foreground mb-3">
+                        <p className="text-sm text-muted-foreground mb-4">
                           Breach date: {formatDate(breach.BreachDate)}
                         </p>
-                        <p className="text-sm mb-3 line-clamp-3">
+                        <p className="text-sm mb-4 line-clamp-3">
                           {breach.Description.replace(/<[^>]*>/g, '')}
                         </p>
-                        <div className="flex flex-wrap gap-1">
+                        <div className="flex flex-wrap gap-2">
                           {breach.DataClasses.map((dataClass) => (
                             <Badge key={dataClass} variant="outline" className="text-xs">
                               {dataClass}

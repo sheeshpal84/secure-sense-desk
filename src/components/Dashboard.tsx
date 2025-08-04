@@ -169,9 +169,9 @@ export default function Dashboard() {
         <Card className="bg-gradient-card border-border/50">
           <CardHeader className="p-6">
             <div className="flex items-center justify-between">
-              <div>
+              <div className="space-y-1">
                 <CardTitle className="flex items-center gap-2">
-                  <AlertTriangle className="h-5 w-5 text-warning" />
+                  <AlertTriangle className="h-5 w-5 text-warning flex-shrink-0" />
                   Recent Threats
                 </CardTitle>
                 <CardDescription>Latest cybersecurity alerts</CardDescription>
@@ -184,8 +184,8 @@ export default function Dashboard() {
           <CardContent className="px-6 pb-6">
             <div className="space-y-4">
               {recentThreats.map((threat, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg border border-border/30">
-                  <div className="flex-1 space-y-2">
+                <div key={index} className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg border border-border/30">
+                  <div className="flex-1 space-y-3">
                     <div className="flex items-center justify-between">
                       <h4 className="font-medium text-sm">{threat.type}</h4>
                       <Badge variant={getSeverityVariant(threat.severity) as any} className="text-xs">
@@ -204,9 +204,9 @@ export default function Dashboard() {
         <Card className="bg-gradient-card border-border/50">
           <CardHeader className="p-6">
             <div className="flex items-center justify-between">
-              <div>
+              <div className="space-y-1">
                 <CardTitle className="flex items-center gap-2">
-                  <Newspaper className="h-5 w-5 text-primary" />
+                  <Newspaper className="h-5 w-5 text-primary flex-shrink-0" />
                   Quick Actions
                 </CardTitle>
                 <CardDescription>Common security tasks</CardDescription>
@@ -214,28 +214,28 @@ export default function Dashboard() {
             </div>
           </CardHeader>
           <CardContent className="px-6 pb-6">
-            <div className="space-y-3">
+            <div className="space-y-4">
               <Button variant="outline" className="w-full justify-start p-4 h-auto" asChild>
                 <Link to="/password">
-                  <Key className="mr-3 h-4 w-4" />
+                  <Key className="mr-3 h-4 w-4 flex-shrink-0" />
                   Test Password Strength
                 </Link>
               </Button>
               <Button variant="outline" className="w-full justify-start p-4 h-auto" asChild>
                 <Link to="/email">
-                  <Mail className="mr-3 h-4 w-4" />
+                  <Mail className="mr-3 h-4 w-4 flex-shrink-0" />
                   Check Email Breaches
                 </Link>
               </Button>
               <Button variant="outline" className="w-full justify-start p-4 h-auto" asChild>
                 <Link to="/phishing">
-                  <Globe className="mr-3 h-4 w-4" />
+                  <Globe className="mr-3 h-4 w-4 flex-shrink-0" />
                   Analyze Suspicious URL
                 </Link>
               </Button>
               <Button variant="outline" className="w-full justify-start p-4 h-auto" asChild>
                 <Link to="/checklist">
-                  <CheckSquare className="mr-3 h-4 w-4" />
+                  <CheckSquare className="mr-3 h-4 w-4 flex-shrink-0" />
                   Security Best Practices
                 </Link>
               </Button>
@@ -256,28 +256,28 @@ export default function Dashboard() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-muted/50 rounded-lg border border-border/30">
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="text-center p-6 bg-muted/50 rounded-lg border border-border/30 space-y-2">
                   <h3 className="text-2xl font-bold text-primary">0%</h3>
-                  <p className="text-sm text-muted-foreground mt-2">Security Checklist</p>
+                  <p className="text-sm text-muted-foreground">Security Checklist</p>
                 </div>
-                <div className="text-center p-4 bg-muted/50 rounded-lg border border-border/30">
+                <div className="text-center p-6 bg-muted/50 rounded-lg border border-border/30 space-y-2">
                   <h3 className="text-2xl font-bold text-warning">-</h3>
-                  <p className="text-sm text-muted-foreground mt-2">Password Tested</p>
+                  <p className="text-sm text-muted-foreground">Password Tested</p>
                 </div>
-                <div className="text-center p-4 bg-muted/50 rounded-lg border border-border/30">
+                <div className="text-center p-6 bg-muted/50 rounded-lg border border-border/30 space-y-2">
                   <h3 className="text-2xl font-bold text-warning">-</h3>
-                  <p className="text-sm text-muted-foreground mt-2">Email Checked</p>
+                  <p className="text-sm text-muted-foreground">Email Checked</p>
                 </div>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <div className="flex justify-between text-sm">
                   <span>Overall Security Score</span>
                   <span>0%</span>
                 </div>
                 <Progress value={0} className="h-2" />
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-xs text-muted-foreground leading-relaxed pt-2">
                   Complete security tools and checklist items to improve your score
                 </p>
               </div>

@@ -70,20 +70,20 @@ export function CyberSidebar() {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild className="group">
-                    <NavLink 
+                     <NavLink 
                       to={item.url} 
                       end
                       className={({ isActive }) =>
-                        `flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 ${
+                        `flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 ${
                           isActive 
                             ? "bg-primary/10 text-primary border border-primary/20 shadow-glow-primary" 
                             : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-primary"
                         }`
                       }
                     >
-                      <item.icon className="h-5 w-5" />
+                      <item.icon className="h-5 w-5 flex-shrink-0" />
                       {!collapsed && (
-                        <div className="flex-1">
+                        <div className="flex-1 space-y-1">
                           <div className="font-medium">{item.title}</div>
                           <div className="text-xs text-muted-foreground">
                             {item.description}

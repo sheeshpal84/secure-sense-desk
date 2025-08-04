@@ -130,11 +130,11 @@ export default function SecurityChecklist() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <BackButton />
       
-      <div className="flex items-center gap-2 mb-6">
-        <CheckSquare className="h-6 w-6 text-primary" />
+      <div className="flex items-center gap-3">
+        <CheckSquare className="h-6 w-6 text-primary flex-shrink-0" />
         <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
           Security Checklist
         </h1>
@@ -148,7 +148,7 @@ export default function SecurityChecklist() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex justify-between items-center">
               <span className="text-sm font-medium">Completion Progress</span>
               <span className="text-sm text-muted-foreground">
@@ -156,7 +156,7 @@ export default function SecurityChecklist() {
               </span>
             </div>
             <Progress value={completionPercentage} className="h-3" />
-            <div className="text-center">
+            <div className="text-center pt-2">
               <Badge variant={completionPercentage === 100 ? "default" : "secondary"}>
                 {completionPercentage.toFixed(0)}% Secure
               </Badge>
@@ -178,11 +178,11 @@ export default function SecurityChecklist() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {categoryItems.map((item) => (
                   <div
                     key={item.id}
-                    className={`flex items-start gap-3 p-3 rounded-lg border transition-all cursor-pointer hover:bg-muted/50 ${
+                    className={`flex items-start gap-4 p-4 rounded-lg border transition-all cursor-pointer hover:bg-muted/50 ${
                       completedItems.has(item.id)
                         ? "bg-success/10 border-success/20"
                         : "bg-card border-border/50"
@@ -205,7 +205,7 @@ export default function SecurityChecklist() {
                       )}
                     </Button>
                     
-                    <div className="flex-1 space-y-1">
+                    <div className="flex-1 space-y-2">
                       <div className="flex items-center justify-between">
                         <h4 className={`font-medium ${
                           completedItems.has(item.id) ? "line-through text-muted-foreground" : ""

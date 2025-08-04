@@ -106,11 +106,11 @@ export default function PhishingDetector() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <BackButton />
       
-      <div className="flex items-center gap-2 mb-6">
-        <Globe className="h-6 w-6 text-primary" />
+      <div className="flex items-center gap-3">
+        <Globe className="h-6 w-6 text-primary flex-shrink-0" />
         <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
           Phishing URL Detector
         </h1>
@@ -123,8 +123,8 @@ export default function PhishingDetector() {
             Enter a URL to check if it might be a phishing or malicious website
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
+        <CardContent className="space-y-6">
+          <div className="space-y-3">
             <Label htmlFor="url">URL to Check</Label>
             <Input
               id="url"
@@ -157,7 +157,7 @@ export default function PhishingDetector() {
           )}
 
           {result && (
-            <div className="space-y-4">
+            <div className="space-y-6 pt-2">
               <Alert className={
                 result.label === "SUSPICIOUS" 
                   ? "border-destructive/20 bg-destructive/10" 
@@ -185,13 +185,13 @@ export default function PhishingDetector() {
                 </AlertDescription>
               </Alert>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-semibold text-sm mb-2">Domain</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm">Domain</h4>
                   <p className="text-sm text-muted-foreground">{result.domain}</p>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-sm mb-2">Trust Status</h4>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-sm">Trust Status</h4>
                   <Badge variant={result.isTrusted ? "default" : "secondary"}>
                     {result.isTrusted ? "Trusted Domain" : "Unknown Domain"}
                   </Badge>
@@ -199,8 +199,8 @@ export default function PhishingDetector() {
               </div>
 
               {result.patterns > 0 && (
-                <div className="p-3 bg-warning/10 border border-warning/20 rounded-lg">
-                  <h4 className="font-semibold text-sm mb-1 text-warning">
+                <div className="p-4 bg-warning/10 border border-warning/20 rounded-lg space-y-2">
+                  <h4 className="font-semibold text-sm text-warning">
                     Suspicious Patterns Detected
                   </h4>
                   <p className="text-sm text-muted-foreground">
@@ -209,7 +209,7 @@ export default function PhishingDetector() {
                 </div>
               )}
 
-              <div className="text-xs text-muted-foreground p-3 bg-muted/50 rounded-lg">
+              <div className="text-xs text-muted-foreground p-4 bg-muted/50 rounded-lg">
                 <strong>Note:</strong> This is a basic analysis tool. Always exercise caution with unknown URLs and verify 
                 websites through official channels before entering sensitive information.
               </div>
