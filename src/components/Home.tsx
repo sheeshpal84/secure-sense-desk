@@ -79,7 +79,7 @@ export default function Home() {
               Get Started Free
             </Button>
           </Link>
-          <Link to="/signin">
+          <Link to="/explore">
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
               Explore Tools
             </Button>

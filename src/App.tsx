@@ -13,6 +13,7 @@ import EmailLeakChecker from "./components/EmailLeakChecker";
 import PhishingDetector from "./components/PhishingDetector";
 import SecurityChecklist from "./components/SecurityChecklist";
 import CyberNews from "./components/CyberNews";
+import ExploreTools from "./components/ExploreTools";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import ForgotPassword from "./components/ForgotPassword";
@@ -34,47 +35,20 @@ const App = () => (
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/explore" element={<ExploreTools />} />
+            
+            {/* Public tool routes (demo mode) */}
+            <Route path="/password" element={<PasswordChecker />} />
+            <Route path="/email" element={<EmailLeakChecker />} />
+            <Route path="/phishing" element={<PhishingDetector />} />
+            <Route path="/checklist" element={<SecurityChecklist />} />
+            <Route path="/news" element={<CyberNews />} />
             
             {/* Protected routes */}
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Layout>
                   <Dashboard />
-                </Layout>
-              </ProtectedRoute>
-            } />
-            <Route path="/password" element={
-              <ProtectedRoute>
-                <Layout>
-                  <PasswordChecker />
-                </Layout>
-              </ProtectedRoute>
-            } />
-            <Route path="/email" element={
-              <ProtectedRoute>
-                <Layout>
-                  <EmailLeakChecker />
-                </Layout>
-              </ProtectedRoute>
-            } />
-            <Route path="/phishing" element={
-              <ProtectedRoute>
-                <Layout>
-                  <PhishingDetector />
-                </Layout>
-              </ProtectedRoute>
-            } />
-            <Route path="/checklist" element={
-              <ProtectedRoute>
-                <Layout>
-                  <SecurityChecklist />
-                </Layout>
-              </ProtectedRoute>
-            } />
-            <Route path="/news" element={
-              <ProtectedRoute>
-                <Layout>
-                  <CyberNews />
                 </Layout>
               </ProtectedRoute>
             } />
