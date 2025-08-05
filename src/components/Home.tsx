@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Shield, Lock, Eye, CheckCircle, Globe, AlertTriangle } from 'lucide-react'
 import SecurityAssistant from '@/components/SecurityAssistant'
+import SecurityInsightsChart from '@/components/SecurityInsightsChart'
 
 export default function Home() {
   const features = [
@@ -102,6 +103,11 @@ export default function Home() {
             <div className="text-muted-foreground">Security Monitoring</div>
           </div>
         </div>
+      </div>
+
+      {/* Security Insights Chart */}
+      <div className="px-6 py-16 max-w-4xl mx-auto">
+        <SecurityInsightsChart />
       </div>
 
       {/* Features Grid */}
