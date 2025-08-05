@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Shield, Lock, Eye, CheckCircle, Globe, AlertTriangle } from 'lucide-react'
+import SecurityAssistant from '@/components/SecurityAssistant'
 
 export default function Home() {
   const features = [
@@ -150,6 +151,9 @@ export default function Home() {
       <footer className="px-6 py-8 border-t border-border/50 text-center text-muted-foreground">
         <p>&copy; 2024 CyberGuard. All rights reserved.</p>
       </footer>
+
+      {/* Security Assistant */}
+      <SecurityAssistant />
     </div>
   )
 }
