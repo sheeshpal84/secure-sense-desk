@@ -116,7 +116,7 @@ export default function Dashboard() {
         <SecurityTipsBanner />
 
         {/* Header */}
-        <div className="flex items-center gap-3 pt-6 pb-2">
+        <div className="flex items-center gap-3 pt-8 pb-6 px-2">
           <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
           <h1 className="text-xl sm:text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent truncate">
             CyberShield Dashboard

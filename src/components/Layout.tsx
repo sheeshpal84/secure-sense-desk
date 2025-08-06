@@ -32,7 +32,7 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </header>
           <main className="flex-1 p-6 md:p-8 overflow-auto">
-            <div className="max-w-7xl mx-auto w-full">
+            <div className="max-w-7xl mx-auto w-full p-4">
               {children}
             </div>
           </main>

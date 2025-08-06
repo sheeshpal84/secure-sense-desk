@@ -128,10 +128,10 @@ export default function CyberNews() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-4">
       <BackButton />
       
-      <div className="flex items-center justify-between mb-6 pt-4 pb-2">
+      <div className="flex items-center justify-between mb-6 pt-6 pb-4 px-2">
         <div className="flex items-center gap-2">
           <Newspaper className="h-6 w-6 text-primary" />
           <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
