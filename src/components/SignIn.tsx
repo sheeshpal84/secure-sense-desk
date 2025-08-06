@@ -47,9 +47,14 @@ export default function SignIn() {
     const success = await login(email, password, rememberMe)
     
     if (success) {
+      // Get user name from localStorage (set by AuthContext after successful login)
+      const userData = localStorage.getItem('user')
+      const userName = userData ? JSON.parse(userData).name : 'User'
+      
       toast({
-        title: "Welcome back!",
+        title: `Welcome back, ${userName}!`,
         description: "You have been successfully signed in.",
+        duration: 3000,
       })
       navigate('/dashboard')
     } else {

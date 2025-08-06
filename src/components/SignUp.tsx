@@ -69,8 +69,9 @@ export default function SignUp() {
     
     if (success) {
       toast({
-        title: "Account created!",
-        description: "Welcome to CyberShield. Your account has been created successfully.",
+        title: `Welcome, ${name}!`,
+        description: "Your account has been created successfully.",
+        duration: 3000,
       })
       navigate('/dashboard')
     } else {
