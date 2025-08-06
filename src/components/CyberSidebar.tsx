@@ -61,20 +61,20 @@ export function CyberSidebar() {
       <SidebarContent className="bg-gradient-dark border-r border-sidebar-border">
         <LogoUpload collapsed={collapsed} />
 
-        <SidebarGroup>
-          <SidebarGroupLabel className="text-primary font-semibold">
+        <SidebarGroup className="py-4">
+          <SidebarGroupLabel className="text-primary font-semibold mb-2 px-3">
             Security Tools
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="space-y-2">
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className="group">
+                  <SidebarMenuButton asChild className="group my-2">
                      <NavLink 
                       to={item.url} 
                       end
                       className={({ isActive }) =>
-                        `flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 ${
+                        `flex items-center gap-3 px-3 py-4 rounded-lg transition-all duration-200 ${
                           isActive 
                             ? "bg-primary/10 text-primary border border-primary/20 shadow-glow-primary" 
                             : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-primary"

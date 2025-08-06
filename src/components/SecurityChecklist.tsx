@@ -133,7 +133,7 @@ export default function SecurityChecklist() {
     <div className="space-y-8">
       <BackButton />
       
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 pt-4 pb-2">
         <CheckSquare className="h-6 w-6 text-primary flex-shrink-0" />
         <h1 className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent">
           Security Checklist
