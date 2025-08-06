@@ -51,7 +51,7 @@ export default function SignIn() {
         title: "Welcome back!",
         description: "You have been successfully signed in.",
       })
-      navigate('/')
+      navigate('/dashboard')
     } else {
       toast({
         title: "Sign in failed",

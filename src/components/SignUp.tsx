@@ -72,7 +72,7 @@ export default function SignUp() {
         title: "Account created!",
         description: "Welcome to CyberShield. Your account has been created successfully.",
       })
-      navigate('/')
+      navigate('/dashboard')
     } else {
       toast({
         title: "Sign up failed",
