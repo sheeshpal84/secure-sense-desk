@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Shield, Lock, Eye, CheckCircle, Globe, AlertTriangle } from 'lucide-react'
 import SecurityAssistant from '@/components/SecurityAssistant'
 import SecurityInsightsChart from '@/components/SecurityInsightsChart'
+import CyberNewsSection from '@/components/CyberNewsSection'
 import SignIn from '@/components/SignIn'
 import SignUp from '@/components/SignUp'
 
@@ -105,19 +106,22 @@ export default function Home() {
         {/* Security Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">12B+</div>
+            <div className="text-3xl font-bold text-primary mb-2">15B+</div>
             <div className="text-muted-foreground">Breached Accounts Tracked</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">99.9%</div>
-            <div className="text-muted-foreground">Threat Detection Rate</div>
+            <div className="text-3xl font-bold text-primary mb-2">99.8%</div>
+            <div className="text-muted-foreground">AI Threat Detection Rate</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-            <div className="text-muted-foreground">Security Monitoring</div>
+            <div className="text-muted-foreground">Quantum-Safe Monitoring</div>
           </div>
         </div>
       </div>
+
+      {/* Cyber News Section */}
+      <CyberNewsSection />
 
       {/* Security Insights Chart */}
       <div className="px-6 py-16 max-w-4xl mx-auto">

@@ -7,18 +7,18 @@ const SecurityInsightsChart = () => {
   const [animationData, setAnimationData] = useState<any[]>([]);
   
   const fullData = [
-    { month: 'Jan', threats: 1240, breaches: 45 },
-    { month: 'Feb', threats: 1580, breaches: 38 },
-    { month: 'Mar', threats: 1920, breaches: 52 },
-    { month: 'Apr', threats: 1650, breaches: 41 },
-    { month: 'May', threats: 2100, breaches: 47 },
-    { month: 'Jun', threats: 1890, breaches: 35 },
-    { month: 'Jul', threats: 2340, breaches: 58 },
-    { month: 'Aug', threats: 2150, breaches: 44 },
-    { month: 'Sep', threats: 2480, breaches: 61 },
-    { month: 'Oct', threats: 2720, breaches: 52 },
-    { month: 'Nov', threats: 2580, breaches: 49 },
-    { month: 'Dec', threats: 2890, breaches: 67 }
+    { month: 'Jan', threats: 2850, breaches: 72 },
+    { month: 'Feb', threats: 3120, breaches: 65 },
+    { month: 'Mar', threats: 3480, breaches: 89 },
+    { month: 'Apr', threats: 3750, breaches: 78 },
+    { month: 'May', threats: 4100, breaches: 95 },
+    { month: 'Jun', threats: 3890, breaches: 71 },
+    { month: 'Jul', threats: 4340, breaches: 103 },
+    { month: 'Aug', threats: 4650, breaches: 88 },
+    { month: 'Sep', threats: 4980, breaches: 112 },
+    { month: 'Oct', threats: 5220, breaches: 97 },
+    { month: 'Nov', threats: 5580, breaches: 119 },
+    { month: 'Dec', threats: 5890, breaches: 134 }
   ];
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const SecurityInsightsChart = () => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-gray-900/95 border border-red-500/20 rounded-lg p-3 shadow-lg backdrop-blur-sm">
-          <p className="text-red-400 font-medium">{`${label} 2024`}</p>
+          <p className="text-red-400 font-medium">{`${label} 2025`}</p>
           <p className="text-white">
             <span className="text-red-300">Threats Detected: </span>
             {payload[0].value.toLocaleString()}
@@ -56,10 +56,10 @@ const SecurityInsightsChart = () => {
           <div>
             <CardTitle className="flex items-center gap-2 text-foreground">
               <TrendingUp className="h-5 w-5 text-primary" />
-              Security Insights 2024
+              Security Insights 2025
             </CardTitle>
             <CardDescription>
-              Real-time threat detection and breach monitoring
+              AI-powered threat detection and advanced breach monitoring
             </CardDescription>
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -138,11 +138,11 @@ const SecurityInsightsChart = () => {
         
         <div className="grid grid-cols-2 gap-4 mt-6">
           <div className="text-center">
-            <div className="text-2xl font-bold text-primary">2.89M</div>
+            <div className="text-2xl font-bold text-primary">5.89M</div>
             <div className="text-sm text-muted-foreground">Threats Blocked</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-destructive">67</div>
+            <div className="text-2xl font-bold text-destructive">134</div>
             <div className="text-sm text-muted-foreground">Breaches Detected</div>
           </div>
         </div>
