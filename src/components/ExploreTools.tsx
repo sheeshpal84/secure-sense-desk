@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Shield, Lock, Eye, CheckCircle, Globe, AlertTriangle } from 'lucide-react'
+import { Shield, Lock, Eye, CheckCircle, Globe, AlertTriangle, ArrowLeft } from 'lucide-react'
 
 export default function ExploreTools() {
   const tools = [
@@ -52,6 +52,12 @@ export default function ExploreTools() {
           <span className="text-xl font-bold text-foreground">CyberGuard</span>
         </Link>
         <div className="flex items-center gap-4">
+          <Link to="/">
+            <Button variant="outline" size="sm" className="flex items-center gap-2">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </Link>
           <Link to="/signin">
             <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
               Login

@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Shield, Lock, Eye, CheckCircle, Globe, AlertTriangle } from 'lucide-react'
 import SecurityAssistant from '@/components/SecurityAssistant'
 import SecurityInsightsChart from '@/components/SecurityInsightsChart'
+import SignIn from '@/components/SignIn'
+import SignUp from '@/components/SignUp'
 
 export default function Home() {
+  const [showSignIn, setShowSignIn] = useState(false)
+  const [showSignUp, setShowSignUp] = useState(false)
+
   const features = [
     {
       icon: Lock,
@@ -49,26 +55,32 @@ export default function Home() {
           <span className="text-xl font-bold text-foreground">CyberGuard</span>
         </div>
         <div className="flex items-center gap-4">
-          <Link to="/signin">
-            <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
-              Login
-            </Button>
-          </Link>
-          <Link to="/signup">
-            <Button variant="default">
-              Sign Up
-            </Button>
-          </Link>
+          <Button 
+            variant="ghost" 
+            className="text-muted-foreground hover:text-foreground"
+            onClick={() => setShowSignIn(true)}
+          >
+            Login
+          </Button>
+          <Button 
+            variant="default"
+            onClick={() => setShowSignUp(true)}
+          >
+            Sign Up
+          </Button>
         </div>
       </nav>
 
       {/* Hero Section */}
       <div className="px-6 py-16 text-center max-w-4xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
             Protect Your
             <span className="text-primary block">Digital Life</span>
           </h1>
+          <p className="text-2xl font-bold text-foreground mb-6">
+            Protect your digital life
+          </p>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Comprehensive cybersecurity tools to safeguard your online presence. 
             Check passwords, detect breaches, and stay ahead of cyber threats.
@@ -76,11 +88,13 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <Link to="/signup">
-            <Button size="lg" className="w-full sm:w-auto">
-              Get Started Free
-            </Button>
-          </Link>
+          <Button 
+            size="lg" 
+            className="w-full sm:w-auto"
+            onClick={() => setShowSignUp(true)}
+          >
+            Get Started Free
+          </Button>
           <Link to="/explore">
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
               Explore Tools
@@ -119,7 +133,7 @@ export default function Home() {
           {features.map((feature, index) => (
             <Card key={index} className="bg-card/50 border-border/50 backdrop-blur-sm hover:bg-card/70 transition-colors">
               <CardHeader>
-                <feature.icon className="h-10 w-10 text-primary mb-4" />
+                <feature.icon className="h-10 w-10 text-primary mb-4 animate-pulse" />
                 <CardTitle className="text-foreground">{feature.title}</CardTitle>
               </CardHeader>
               <CardContent>
@@ -139,16 +153,21 @@ export default function Home() {
           <p className="text-muted-foreground mb-8">
             Join thousands of users who trust CyberGuard to protect their online presence.
           </p>
-          <Link to="/signup">
-            <Button size="lg" className="mb-4">
-              Start Your Security Journey
-            </Button>
-          </Link>
+          <Button 
+            size="lg" 
+            className="mb-4"
+            onClick={() => setShowSignUp(true)}
+          >
+            Start Your Security Journey
+          </Button>
           <div className="text-sm text-muted-foreground">
             Already have an account? 
-            <Link to="/signin" className="text-primary hover:underline ml-1">
+            <button 
+              onClick={() => setShowSignIn(true)}
+              className="text-primary hover:underline ml-1"
+            >
               Sign in here
-            </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -160,6 +179,40 @@ export default function Home() {
 
       {/* Security Assistant */}
       <SecurityAssistant />
+
+      {/* Sign In Modal */}
+      <Dialog open={showSignIn} onOpenChange={setShowSignIn}>
+        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+          <div className="relative">
+            <SignIn />
+            <Button
+              variant="ghost"
+              size="sm"
+              className="absolute top-2 right-2"
+              onClick={() => setShowSignIn(false)}
+            >
+              Cancel
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Sign Up Modal */}
+      <Dialog open={showSignUp} onOpenChange={setShowSignUp}>
+        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+          <div className="relative">
+            <SignUp />
+            <Button
+              variant="ghost"
+              size="sm"
+              className="absolute top-2 right-2"
+              onClick={() => setShowSignUp(false)}
+            >
+              Cancel
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
