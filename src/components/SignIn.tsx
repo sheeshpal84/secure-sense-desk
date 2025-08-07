@@ -54,6 +54,7 @@ export default function SignIn() {
       toast({
         title: `Welcome back, ${userName}!`,
         description: "You have been successfully signed in.",
+        variant: "success",
         duration: 3000,
       })
       navigate('/dashboard')

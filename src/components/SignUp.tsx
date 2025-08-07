@@ -71,6 +71,7 @@ export default function SignUp() {
       toast({
         title: `Welcome, ${name}!`,
         description: "Your account has been created successfully.",
+        variant: "success",
         duration: 3000,
       })
       navigate('/dashboard')
