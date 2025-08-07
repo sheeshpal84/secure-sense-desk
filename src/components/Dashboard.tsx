@@ -9,6 +9,7 @@ import SecurityAssistant from './SecurityAssistant'
 import SecurityTipsBanner from './SecurityTipsBanner'
 import SecurityScore from './SecurityScore'
 import MiniAnalytics from './MiniAnalytics'
+import AnimatedStatsCards from './AnimatedStatsCards'
 
 const securityMetrics = [
   {
@@ -137,6 +138,12 @@ export default function Dashboard() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Animated Stats Cards */}
+        <div className="space-y-6">
+          <h2 className="text-lg sm:text-xl font-semibold text-foreground">Security Analytics</h2>
+          <AnimatedStatsCards />
+        </div>
 
         {/* Security Tools Grid */}
         <div className="space-y-6">
