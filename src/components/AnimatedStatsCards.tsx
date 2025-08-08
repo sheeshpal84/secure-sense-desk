@@ -61,19 +61,19 @@ export default function AnimatedStatsCards() {
   const stats = [
     {
       title: "Total Passwords Checked",
-      value: 12847,
+      value: 4532,
       icon: Key,
       delay: 200
     },
     {
       title: "Total Breaches Detected", 
-      value: 156,
+      value: 1274,
       icon: Shield,
       delay: 400
     },
     {
       title: "Phishing URLs Analyzed",
-      value: 8923,
+      value: 362,
       icon: Globe,
       delay: 600
     }

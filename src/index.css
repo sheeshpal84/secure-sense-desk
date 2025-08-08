@@ -113,3 +113,28 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* Gradients */
+  .bg-gradient-cyber {
+    background: var(--gradient-cyber);
+  }
+  
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  /* Shadows */
+  .shadow-glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .shadow-glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+}
+}

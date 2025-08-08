@@ -178,7 +178,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="px-6 py-8 border-t border-border/50 text-center text-muted-foreground">
-        <p>&copy; 2024 CyberGuard. All rights reserved.</p>
+        <p>&copy; 2025 CyberGuard. All rights reserved.</p>
       </footer>
 
       {/* Security Assistant */}

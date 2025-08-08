@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Shield, Lock, Eye, CheckCircle, Globe, AlertTriangle, ArrowLeft } from 'lucide-react'
+import { BackButton } from './BackButton'
 
 export default function ExploreTools() {
   const tools = [
@@ -45,6 +46,9 @@ export default function ExploreTools() {
 
   return (
     <div className="min-h-screen bg-gradient-dark">
+      <div className="p-4">
+        <BackButton />
+      </div>
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-4 border-b border-border/50">
         <Link to="/" className="flex items-center gap-2">
